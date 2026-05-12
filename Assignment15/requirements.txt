@@ -1,0 +1,7 @@
+robotframework
+robotframework-seleniumlibrary
+selenium
+allure-robotframework
+robotframework-seleniumlibrary
+selenium
+webdriver-manager

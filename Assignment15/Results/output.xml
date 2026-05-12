@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.14.4 on win32)" generated="2026-05-12T22:05:49.909579" rpa="false" schemaversion="5">
+<suite id="s1" name="Smoke Tests" source="D:\PythonTesting\Assignment15\tests\smoke_tests.robot">
+<kw name="Open Browser To SauceDemo" owner="common" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-05-12T22:05:50.186899" level="INFO">Opening browser 'chrome' to base url 'https://www.saucedemo.com'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-05-12T22:05:50.186640" elapsed="2.727884"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-05-12T22:05:52.915116" elapsed="0.034166"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>0.3s</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2026-05-12T22:05:52.949578" elapsed="0.000479"/>
+</kw>
+<status status="PASS" start="2026-05-12T22:05:50.185705" elapsed="2.764494"/>
+</kw>
+<test id="s1-t1" name="Valid Login Test" line="10">
+<kw name="Set Test Documentation" owner="BuiltIn">
+<msg time="2026-05-12T22:05:52.951448" level="INFO">Set test documentation to:
+Verify successful login into SauceDemo application.</msg>
+<arg>Verify successful login into SauceDemo application.</arg>
+<doc>Sets documentation for the current test case.</doc>
+<status status="PASS" start="2026-05-12T22:05:52.950941" elapsed="0.000597"/>
+</kw>
+<kw name="Login To Application" owner="login_page">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-12T22:05:52.953872" level="INFO">Typing text 'standard_user' into text field 'id:user-name'.</msg>
+<arg>${USERNAME_FIELD}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-12T22:05:52.953402" elapsed="0.997241"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-05-12T22:05:53.950981" level="INFO">Typing password into text field 'id:password'.</msg>
+<msg time="2026-05-12T22:05:54.577385" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${PASSWORD_FIELD}</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-12T22:05:53.950793" elapsed="0.960591"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-05-12T22:05:54.911705" level="INFO">Clicking button 'id:login-button'.</msg>
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-12T22:05:54.911533" elapsed="0.993971"/>
+</kw>
+<arg>standard_user</arg>
+<arg>secret_sauce</arg>
+<status status="PASS" start="2026-05-12T22:05:52.952955" elapsed="2.952659"/>
+</kw>
+<kw name="Verify Products Page" owner="login_page">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-05-12T22:05:56.534552" level="INFO">Element 'xpath://span[text()='Products']' is displayed.</msg>
+<arg>${PRODUCT_TITLE}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-12T22:05:55.906257" elapsed="0.628405"/>
+</kw>
+<status status="PASS" start="2026-05-12T22:05:55.906063" elapsed="0.628676"/>
+</kw>
+<kw name="Capture Failure Screenshot" owner="common" type="TEARDOWN">
+<kw name="Get Time" owner="BuiltIn">
+<msg time="2026-05-12T22:05:56.535755" level="INFO">${timestamp} = 1778603756</msg>
+<var>${timestamp}</var>
+<arg>epoch</arg>
+<doc>Returns the given time in the requested format.</doc>
+<status status="PASS" start="2026-05-12T22:05:56.535516" elapsed="0.000262"/>
+</kw>
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<arg>Capture Page Screenshot</arg>
+<arg>failure_${TEST_NAME}_${timestamp}.png</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2026-05-12T22:05:56.535857" elapsed="0.000192"/>
+</kw>
+<status status="PASS" start="2026-05-12T22:05:56.535321" elapsed="0.000776"/>
+</kw>
+<doc>Verify successful login into SauceDemo application.</doc>
+<tag>Critical</tag>
+<tag>Smoke</tag>
+<status status="PASS" start="2026-05-12T22:05:52.950294" elapsed="3.586073"/>
+</test>
+<kw name="Close Browser Session" owner="common" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-05-12T22:05:56.537291" elapsed="2.453964"/>
+</kw>
+<status status="PASS" start="2026-05-12T22:05:56.537177" elapsed="2.454169"/>
+</kw>
+<status status="PASS" start="2026-05-12T22:05:49.911143" elapsed="9.080235"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">Critical</stat>
+<stat pass="1" fail="0" skip="0">Smoke</stat>
+</tag>
+<suite>
+<stat name="Smoke Tests" id="s1" pass="1" fail="0" skip="0">Smoke Tests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
